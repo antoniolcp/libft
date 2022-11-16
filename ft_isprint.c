@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamy-ca <alamy-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 16:11:54 by alamy-ca          #+#    #+#             */
-/*   Updated: 2022/11/14 17:43:00 by alamy-ca         ###   ########.fr       */
+/*   Created: 2022/11/09 14:39:09 by alamy-ca          #+#    #+#             */
+/*   Updated: 2022/11/09 16:18:08 by alamy-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	ft_isalpha(int a)
+int	ft_isprint(int a)
 {
-	if ((a > 64 && a < 91) || (a > 96 && a < 123))
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+	return (a >= 32 && a <= 126);
 }
+
+/* int main()
+{
+    char c = '\n';
+    printf("%d", ft_isprint(c));
+} */

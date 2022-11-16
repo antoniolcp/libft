@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamy-ca <alamy-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 16:11:54 by alamy-ca          #+#    #+#             */
-/*   Updated: 2022/11/14 17:43:00 by alamy-ca         ###   ########.fr       */
+/*   Created: 2022/11/16 15:19:23 by alamy-ca          #+#    #+#             */
+/*   Updated: 2022/11/16 15:30:03 by alamy-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	ft_isalpha(int a)
+int	ft_toupper(int c)
 {
-	if ((a > 64 && a < 91) || (a > 96 && a < 123))
-	{
-		return (1);
-	}
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
 	else
-	{
-		return (0);
-	}
+		return (c);
 }
+
+/* #include <stdio.h>
+#include <ctype.h>
+int main() {
+    char c;
+
+    c = 'm';
+    printf("%c -> %c", c, toupper(c));
+
+    c = 'a';
+    printf("\n%c -> %c", c, toupper(c));
+
+    c = '8';
+    printf("\n%c -> %c", c, toupper(c));
+    return 0;
+} */

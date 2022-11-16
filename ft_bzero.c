@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamy-ca <alamy-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 16:11:54 by alamy-ca          #+#    #+#             */
-/*   Updated: 2022/11/14 17:43:00 by alamy-ca         ###   ########.fr       */
+/*   Created: 2022/11/14 16:05:54 by alamy-ca          #+#    #+#             */
+/*   Updated: 2022/11/14 17:27:19 by alamy-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	ft_isalpha(int a)
+void	ft_bzero(void *s, size_t n)
 {
-	if ((a > 64 && a < 91) || (a > 96 && a < 123))
-	{
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+	ft_memset(s, 0, n);
 }
+
+/* int	main(void)
+{
+	char buffer[80];
+
+	bzero(buffer, 80);
+	return (EXIT_SUCCESS);
+} */
