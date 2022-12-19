@@ -1,41 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamy-ca <alamy-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 14:49:00 by alamy-ca          #+#    #+#             */
-/*   Updated: 2022/12/15 18:02:05 by alamy-ca         ###   ########.fr       */
+/*   Created: 2022/12/15 16:30:38 by alamy-ca          #+#    #+#             */
+/*   Updated: 2022/12/19 15:39:01 by alamy-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+char *ft_strjoin(char const *s1, char const *s2)
 {
-	long	res;
-	long	sign;
-	unsigned int i;
+	int i;
+	int j;
+	char *str;
+
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
+	if (str == NULL)
+		return (NULL);
 	
-	res = 0;
-	sign = 1;
-	i = 0;
-	
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] '\r' || str[i] '\v' || str[i] == '\f')
-	i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (s1[i] != '\0')
 	{
-		if (str[i++] == '-')
-			sign = -1;
+		str[i] = s1[i];
+		i++;  
+	}
+	
+	while (s2[i] != '\0')
+	{
+		str[i + j] = s2[i];
 		i++;
 	}
 	
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + str[i] - '0';
-		i++;
-	}
-	
-	return ((int)(res * sign));
+	str[i + j] = '\0';
+	return (str);
+}
+
+#include <stdio.h>
+
+int main ()
+{
+   char a[2] = {'H', 'e'};
+   printf("String: %s\n", a );
+   return 0;
 }
