@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamy-ca <alamy-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 14:09:41 by alamy-ca          #+#    #+#             */
-/*   Updated: 2023/01/02 15:47:48 by alamy-ca         ###   ########.fr       */
+/*   Created: 2023/01/02 15:32:35 by alamy-ca          #+#    #+#             */
+/*   Updated: 2023/01/02 15:32:43 by alamy-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+static void	ft_print_special(int fd)
 {
-	char	*str;
-	size_t	i;
+	write(fd, "-2147483648", 11);
+}
 
-	i = 0;
-	str = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
-	if (str == NULL)
-		return (NULL);
-	while (s[i])
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (n != -2147483648)
 	{
-		str[i] = s[i];
-		i++;
+		if (n < 0)
+		{
+			n = n * (-1);
+			ft_putchar_fd('-', fd);
+		}
+		if (n < 10)
+			ft_putchar_fd(n + '0', fd);
+		else
+		{
+			ft_putnbr_fd(n / 10, fd);
+			ft_putnbr_fd(n % 10, fd);
+		}
 	}
-	str[i] = 0;
-	return (str);
+	else
+		ft_print_special(fd);
 }
-
-/* int main()
-{
-	char source[] = "GeeksForGeeks";
-
-	char* target = ft_strdup(source);
-
-	printf("%s", target);
-	return 0;
-}
- */

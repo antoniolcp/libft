@@ -6,27 +6,21 @@
 /*   By: alamy-ca <alamy-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:38:35 by alamy-ca          #+#    #+#             */
-/*   Updated: 2022/12/15 13:55:07 by alamy-ca         ###   ########.fr       */
+/*   Updated: 2023/01/02 15:58:40 by alamy-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_calloc(size_t nitems, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
-	char *ptr;
-	size_t i;
-	
-	i = 0;
-	ptr = malloc(nitems * size);
-	if (ptr == NULL)
-		return (ptr);
-	while (i < nitems * size)
-	{
-		ptr[i] = 0;
-		i++;
-	}
-	return (ptr);
+	void	*str;
+
+	str = malloc(size * count);
+	if (str == NULL)
+		return (NULL);
+	ft_bzero(str, count * size);
+	return (str);
 }
 
 /* #include <stdio.h>

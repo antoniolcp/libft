@@ -1,42 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alamy-ca <alamy-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 14:09:41 by alamy-ca          #+#    #+#             */
-/*   Updated: 2023/01/02 15:47:48 by alamy-ca         ###   ########.fr       */
+/*   Created: 2023/01/02 15:28:05 by alamy-ca          #+#    #+#             */
+/*   Updated: 2023/01/02 15:28:13 by alamy-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*str;
-	size_t	i;
+	int	i;
 
-	i = 0;
-	str = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
-	if (str == NULL)
-		return (NULL);
-	while (s[i])
-	{
-		str[i] = s[i];
-		i++;
-	}
-	str[i] = 0;
-	return (str);
+	if (s == NULL)
+		return ;
+	i = -1;
+	while (s[++i])
+		ft_putchar_fd(s[i], fd);
 }
-
-/* int main()
-{
-	char source[] = "GeeksForGeeks";
-
-	char* target = ft_strdup(source);
-
-	printf("%s", target);
-	return 0;
-}
- */

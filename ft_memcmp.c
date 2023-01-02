@@ -6,51 +6,37 @@
 /*   By: alamy-ca <alamy-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 11:51:06 by alamy-ca          #+#    #+#             */
-/*   Updated: 2022/12/12 13:04:54 by alamy-ca         ###   ########.fr       */
+/*   Updated: 2023/01/02 15:54:31 by alamy-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char *str1;
-	char *str2;
-	size_t i;
-	
+	unsigned int	i;
+	unsigned char	*ss1;
+	unsigned char	*ss2;
+
+	ss1 = (unsigned char *)s1;
+	ss2 = (unsigned char *)s2;
 	i = 0;
-	str1 = (char *)s1;
-	str2 = (char *)s2;
-	
+	if (n == 0)
+		return (0);
 	while (i < n)
 	{
-		if (str1 [i] != str2 [i])
-			return ((unsigned char)str1[i] - (unsigned char)str2[i]);
+		if (ss1[i] != ss2[i])
+			return (ss1[i] - ss2[i]);
 		i++;
 	}
-	return (0);
+	return (ss1[i - 1] - ss2[i - 1]);
 }
-
-/* #include <stdio.h>
-#include <string.h>
-
-int main () {
-   char str1[15];
-   char str2[15];
-   int ret;
-
-   memcpy(str1, "abcdef", 6);
-   memcpy(str2, "ABCDEF", 6);
-
-   ret = memcmp(str1, str2, 5);
-
-   if(ret > 0) {
-      printf("str2 is less than str1");
-   } else if(ret < 0) {
-      printf("str1 is less than str2");
-   } else {
-      printf("str1 is equal to str2");
-   }
-   
-   return(0);
-} */
+/*
+#include <stdio.h>
+int main(void)
+{
+	char str1[] = "testes6";
+	char str2[] = "testes5";
+	printf("%i \n", ft_memcmp(str1, str2, 6));
+	printf("%i \n", memcmp(str1, str2, 6));
+}*/
