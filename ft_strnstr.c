@@ -6,7 +6,7 @@
 /*   By: alamy-ca <alamy-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:05:51 by alamy-ca          #+#    #+#             */
-/*   Updated: 2023/01/02 15:48:34 by alamy-ca         ###   ########.fr       */
+/*   Updated: 2023/01/06 13:53:46 by alamy-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 	while (i < n && s1[i] != '\0')
 	{
 		j = 0;
-		while (i + j < n && s1 [i + j] == s2[j] && s2 != '\0')
+		while ((i + j < n) && (s1 [i + j] == s2[j]) && s2)
 			j++;
 		if (s2[j] == '\0')
 			return ((char *)s1 + i);

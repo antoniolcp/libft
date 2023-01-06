@@ -6,7 +6,7 @@
 /*   By: alamy-ca <alamy-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 18:58:33 by alamy-ca          #+#    #+#             */
-/*   Updated: 2022/12/06 15:12:20 by alamy-ca         ###   ########.fr       */
+/*   Updated: 2023/01/05 15:54:22 by alamy-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	int		i;
 
 	i = ft_strlen(s);
+	if (c == 0)
+		return ((char *)s + i);
 	while (i >= 0)
 	{
 		if (s[i] == c)
-			return ((char *)&s[i]);
+			return ((char *)s + i);
 		i--;
 	}
-	return (0);
+	return (NULL);
 }
